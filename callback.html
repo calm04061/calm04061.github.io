@@ -38,7 +38,7 @@
     debugger
     let callback = sessionStorage.getItem("target");
     if (callback) {
-      window.locat.href = callback + locat.search
+      window.location.href = decodeURIComponent(callback) + locat.search
     }
   }
 </script>
