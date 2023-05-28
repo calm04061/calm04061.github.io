@@ -23,16 +23,22 @@
     }
     return obj
   }
-  let locat=window.location;
+
+  let locat = window.location;
   let href = window.location.href;
   let parameters = getUrlParams(href);
   let target = parameters['target'];
   let redirect_uri = parameters['redirect_uri'];
   if (target && redirect_uri) {
-    sessionStorage.setItem("target", target);
+    sessionStorage.setItem("target", decodeURIComponent(target));
     let url = encodeURIComponent(locat.origin + locat.pathname)
-    debugger
     window.location.href = decodeURIComponent(redirect_uri) + "&redirect_uri=" + url
+  } else {
+    debugger
+    let callback = sessionStorage.getItem("target");
+    if (callback) {
+      window.locat.href = callback + locat.search
+    }
   }
 </script>
 </body>
