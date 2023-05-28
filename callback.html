@@ -32,7 +32,7 @@
     sessionStorage.setItem("target", target);
     let url = encodeURIComponent(locat.origin + locat.pathname)
     debugger
-    window.location.href = redirect_uri + "?redirect_uri=" + url
+    window.location.href = decodeURIComponent(redirect_uri) + "?redirect_uri=" + url
   }
 </script>
 </body>
